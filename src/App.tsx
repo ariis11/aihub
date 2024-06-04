@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './components/Home';
 import EmailMarketer from './components/EmailMarketer';
-import Navbar from './components/NavBar';
+// import Navbar from './components/NavBar';
 
 export default function App() {
   useEffect(() => {
