@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from './components/Home';
 import EmailMarketer from './components/EmailMarketer';
-// import Navbar from './components/NavBar';
+import Navbar from './components/NavBar';
 
 export default function App() {
   useEffect(() => {
@@ -13,13 +13,11 @@ export default function App() {
 
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/aihub" element={<Home />} />
-          <Route path="/email-marketer" element={<EmailMarketer />} />
-        </Routes>
-      </Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/email-marketer" element={<EmailMarketer />} />
+      </Routes>
     </>
   );
 }
