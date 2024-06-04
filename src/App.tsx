@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from './components/Home';
 import EmailMarketer from './components/EmailMarketer';
 import Navbar from './components/NavBar';
