@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/Home';
 import EmailMarketer from './components/EmailMarketer';
+import Navbar from './components/NavBar';
 
 export default function App() {
   useEffect(() => {
@@ -12,13 +13,11 @@ export default function App() {
 
   return (
     <>
-    Labas
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/email-marketer" element={<EmailMarketer />} />
-        </Routes>
-      </BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/email-marketer" element={<EmailMarketer />} />
+      </Routes>
     </>
   );
 }
