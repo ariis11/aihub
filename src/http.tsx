@@ -41,3 +41,20 @@ export async function sendEmail(recipient: string, subject: string, message: str
 
     return true;
 }
+
+export async function getCryptoNews() {
+    const response = await fetch('http://localhost:3000/getCryptoNews', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+
+    const json = await response.json();
+
+    return json;
+}

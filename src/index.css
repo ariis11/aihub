@@ -118,3 +118,36 @@ textarea {
   flex-direction: column;
   gap: 10px;
 }
+
+.news-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.header-row {
+  display: flex;
+  font-weight: bold;
+  border-bottom: 2px solid #e1e1e1;
+  padding-bottom: 8px;
+}
+
+.header-column {
+  flex: 1;
+  padding: 8px;
+}
+
+.news-row {
+  display: flex;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 8px 0;
+}
+
+.news-column {
+  flex: 1;
+  padding: 8px;
+}
