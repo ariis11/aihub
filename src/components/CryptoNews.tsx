@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getCryptoNews } from "../http";
 
 export default function CryptoNews() {
-    const [newsList, setNewsList] = useState([]);
+    const [newsList, setNewsList] = useState([{title: '', type: ''}]);
 
     useEffect(() => {
         const fetchNews = async () => {
