@@ -26,3 +26,18 @@ export async function generateEmail(message: string) {
 
     return JSON.parse(text).content;
 }
+
+export async function sendEmail(recipient: string, subject: string, message: string) {
+    const response = await fetch(`http://localhost:3000/sendEmail?recipient=${recipient}&subject=${subject}&message=${message}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+
+    return true;
+}
