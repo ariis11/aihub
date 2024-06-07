@@ -112,3 +112,9 @@ textarea {
 .button:hover {
   background-color: #4fa3d1;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

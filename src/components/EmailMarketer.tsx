@@ -67,7 +67,7 @@ export default function EmailMarketer() {
                         onChange={(e) => setAiPrompt(e.target.value)}
                         placeholder="Type your prompt here..."
                     />
-                    <div>
+                    <div className="buttons">
                         <button className="button" onClick={handleGenerateEmail}>Generate</button>
                         <button className="button" onClick={handleSendEmail}>Send Email</button>
                     </div>

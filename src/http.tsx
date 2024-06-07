@@ -28,7 +28,7 @@ export async function generateEmail(message: string) {
 }
 
 export async function sendEmail(recipient: string, subject: string, message: string) {
-    const response = await fetch(`http://localhost:3000/sendEmail?recipient=${recipient}&subject=${subject}&message=${message}`, {
+    const response = await fetch(`https://aihub-nodejs-86bbd6860391.herokuapp.com/sendEmail?recipient=${recipient}&subject=${subject}&message=${message}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
