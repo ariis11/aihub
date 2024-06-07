@@ -43,7 +43,7 @@ export async function sendEmail(recipient: string, subject: string, message: str
 }
 
 export async function getCryptoNews() {
-    const response = await fetch('http://localhost:3000/getCryptoNews', {
+    const response = await fetch('https://aihub-nodejs-86bbd6860391.herokuapp.com/getCryptoNews', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
