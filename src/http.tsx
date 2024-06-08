@@ -1,5 +1,5 @@
 export async function authorizeAccount() {
-    const response = await fetch('https://aihub-nodejs-86bbd6860391.herokuapp.com/emailMarketer/authorizeAccount', {
+    const response = await fetch('http://localhost:3000/emailMarketer/authorizeAccount', {
         method: 'GET'
     });
 
@@ -11,7 +11,7 @@ export async function authorizeAccount() {
 }
 
 export async function generateEmail(message: string) {
-    const response = await fetch(`https://aihub-nodejs-86bbd6860391.herokuapp.com/generateEmail?message=${message}`, {
+    const response = await fetch(`http://localhost:3000/generateEmail?message=${message}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ export async function generateEmail(message: string) {
 }
 
 export async function sendEmail(recipient: string, subject: string, message: string) {
-    const response = await fetch(`https://aihub-nodejs-86bbd6860391.herokuapp.com/sendEmail?recipient=${recipient}&subject=${subject}&message=${message}`, {
+    const response = await fetch(`http://localhost:3000/sendEmail?recipient=${recipient}&subject=${subject}&message=${message}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ export async function sendEmail(recipient: string, subject: string, message: str
 }
 
 export async function getCryptoNews() {
-    const response = await fetch('https://aihub-nodejs-86bbd6860391.herokuapp.com/getCryptoNews', {
+    const response = await fetch('http://localhost:3000/getCryptoNews', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ export async function generateCryptoNewsAnswer(message: string, newsList: any) {
 
     const newMessage = `Question: ${message}. Context: ${urls}`;
 
-    const response = await fetch(`https://aihub-nodejs-86bbd6860391.herokuapp.com/generateEmail?message=${newMessage}`, {
+    const response = await fetch(`http://localhost:3000/generateEmail?message=${newMessage}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ export async function generateCryptoNewsAnswer(message: string, newsList: any) {
 }
 
 export async function getCoinData(id: string, days: number) {
-    const response = await fetch(`https://aihub-nodejs-86bbd6860391.herokuapp.com/getCoinHistoricData?id=${id}&days=${days}`, {
+    const response = await fetch(`http://localhost:3000/getCoinHistoricData?id=${id}&days=${days}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -95,4 +95,46 @@ export async function getCoinData(id: string, days: number) {
     const json = await response.json();
 
     return json;
+}
+
+export async function generateTechnicalAnalysisAnswer(message: string, coinData: any) {
+    const newMessage = `Question: ${message}. Data of cryptocurrency: ${JSON.stringify(coinData)}.`;
+
+    console.log(newMessage);
+
+    const response = await fetch(`http://localhost:3000/generateEmail?message=${newMessage}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+
+    const text = await response.text();
+
+    return JSON.parse(text).content;
+}
+
+export async function performTechnicalAnalysis(coinData: any) {
+    const newMessage = `Perform comprehensive technical analysis. Data of cryptocurrency: ${JSON.stringify(coinData)}.`;
+
+    console.log(newMessage);
+
+    const response = await fetch(`http://localhost:3000/generateEmail?message=${newMessage}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+
+    const text = await response.text();
+
+    return JSON.parse(text).content;
 }

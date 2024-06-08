@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getCryptoNews } from "../http";
 
 export default function CryptoNews() {
-    const [newsList, setNewsList] = useState([{ title: '', type: '', url: '' }]);
+    const [newsList, setNewsList] = useState<{ title: string, type: string, url: string }[] | null>(null);
 
     useEffect(() => {
         const fetchNews = async () => {
@@ -21,13 +21,15 @@ export default function CryptoNews() {
         let bullishCount = 0;
         let bearishCount = 0;
 
-        newsList.forEach(news => {
-            if (news.type === 'Bullish') {
-                bullishCount++;
-            } else if (news.type === 'Bearish') {
-                bearishCount++;
-            }
-        });
+        if (newsList) {
+            newsList.forEach(news => {
+                if (news.type === 'Bullish') {
+                    bullishCount++;
+                } else if (news.type === 'Bearish') {
+                    bearishCount++;
+                }
+            });
+        }
 
         if (bullishCount > bearishCount) {
             return 'Bullish';
@@ -38,7 +40,7 @@ export default function CryptoNews() {
         }
     };
 
-    const evaluation = evaluateNews();
+    const evaluation = newsList ? evaluateNews() : null;
 
     return (
         <div>
@@ -48,7 +50,7 @@ export default function CryptoNews() {
                     <div className="header-column">Header</div>
                     <div className="header-column">Type</div>
                 </div>
-                {newsList.map((news, index) => (
+                {newsList && newsList.map((news, index) => (
                     <div key={index} className="news-row">
                         <div className="news-column">{news.title}</div>
                         <div className="news-column">{news.type}</div>

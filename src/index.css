@@ -155,3 +155,8 @@ textarea {
 .news-evaluation {
   text-align: center;
 }
+
+.technical-analysis-container {
+  text-align: -webkit-center;
+  margin: auto;
+}
