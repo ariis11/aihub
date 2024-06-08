@@ -6,9 +6,11 @@ export default function Chart(props: any) {
     const {
         data,
         colors: {
-            backgroundColor = '#282c34',
+            // backgroundColor = '#282c34',
+            backgroundColor = '#f0f0f0',
             lineColor = '#2962FF',
-            textColor = 'white',
+            // textColor = 'white',
+            textColor = '#282c34',
             areaTopColor = '#2962FF',
             areaBottomColor = 'rgba(41, 98, 255, 0.28)',
         } = {},

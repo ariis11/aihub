@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 import Home from './components/Home';
 import EmailMarketer from './components/EmailMarketer';
 import Navbar from './components/NavBar';
@@ -15,13 +15,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/email-marketer" element={<EmailMarketer />} />
-        <Route path="/crypto-news" element={<CryptoNews />} />
-        <Route path="/technical-analysis" element={<TechnicalAnalysis />} />
-      </Routes>
+      <Home />
     </>
   );
 }

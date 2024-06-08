@@ -8,6 +8,8 @@ export default function TechnicalAnalysis() {
     const [prompt, setPrompt] = useState('');
     const [aiResponse, setAiResponse] = useState('');
     const [technicalAnalysis, setTechnicalAnalysis] = useState('');
+    const [loadingTechnicalAnalysis, setLoadingTechnicalAnalysis] = useState(true);
+    const [loadingAiResponse, setLoadingAiResponse] = useState(false);
 
     useEffect(() => {
         const fetchNews = async () => {
@@ -33,33 +35,44 @@ export default function TechnicalAnalysis() {
     };
 
     async function handlePromptSubmit() {
+        setLoadingAiResponse(true);
         const response = await generateTechnicalAnalysisAnswer(prompt, coinData);
         setAiResponse(response);
+        setLoadingAiResponse(false);
     };
 
     async function performAnalysis() {
+        setLoadingTechnicalAnalysis(true);
         const response = await performTechnicalAnalysis(coinData);
         setTechnicalAnalysis(response);
+        setLoadingTechnicalAnalysis(false);
     };
 
     return (
         <div className="technical-analysis-container">
             <h1>Technical Analysis</h1>
-            {coinData?.prices && <Chart data={coinData.prices} />}
-            {technicalAnalysis && <p>{technicalAnalysis}</p>}
+            {coinData?.prices && <div className="chart-container"><Chart data={coinData.prices} /></div>}
+            {loadingTechnicalAnalysis ? (
+                <p className="analysis-loader">Loading technical analysis...</p>
+            ) : (
+                technicalAnalysis && <p className="justified-text">{technicalAnalysis}</p>
+            )}
             <div className="output-area">
-                <textarea 
-                    value={aiResponse} 
-                    readOnly 
-                    placeholder="AI response will appear here" 
-                />
+                <div className={`textarea-container ${loadingAiResponse ? 'loading' : ''}`}>
+                    <textarea
+                        value={aiResponse}
+                        readOnly
+                        placeholder="AI response will appear here"
+                    />
+                    {loadingAiResponse && <div className="loader">Loading...</div>}
+                </div>
             </div>
             <div className="input-area">
-                <input 
-                    type="text" 
-                    value={prompt} 
-                    onChange={handlePromptChange} 
-                    placeholder="Type your prompt here" 
+                <input
+                    type="text"
+                    value={prompt}
+                    onChange={handlePromptChange}
+                    placeholder="Type your prompt here"
                 />
                 <button onClick={handlePromptSubmit}>Submit</button>
             </div>

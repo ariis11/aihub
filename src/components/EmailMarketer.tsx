@@ -7,27 +7,34 @@ export default function EmailMarketer() {
     const [emailSubject, setEmailSubject] = useState('');
     const [emailRecipient, setEmailRecipient] = useState('');
     const [aiPrompt, setAiPrompt] = useState('');
+    const [loadingGenerate, setLoadingGenerate] = useState(false);
+    const [loadingSend, setLoadingSend] = useState(false);
+
 
     async function handleGenerateEmail() {
+        setLoadingGenerate(true);
         try {
             const generatedEmail = await generateEmail(aiPrompt);
             setEmailContent(generatedEmail);
         } catch (error) {
             console.error('Error:', error);
+        } finally {
+            setLoadingGenerate(false);
         }
     }
 
     async function handleSendEmail() {
+        setLoadingSend(true);
         try {
-            const isSent = await sendEmail(emailRecipient, emailSubject, emailContent);
-
-            if (isSent) {
-                console.log('yay');
-            }
+            await sendEmail(emailRecipient, emailSubject, emailContent);
+            setLoadingSend(false);
         } catch (error) {
             console.error('Error:', error);
+            setLoadingSend(false);
         }
     }
+
+    const isSendDisabled = !emailContent || !emailSubject || !emailRecipient;
 
     return (
         <div className="container">
@@ -51,12 +58,16 @@ export default function EmailMarketer() {
             </div>
             <div className="email-area">
                 <label htmlFor="emailContent">Message:</label>
-                <textarea
-                    id="emailContent"
-                    value={emailContent}
-                    onChange={(e) => setEmailContent(e.target.value)}
-                    placeholder="Type your email here..."
-                />
+                <div className={`textarea-container ${loadingGenerate ? 'loading' : ''}`}>
+                    <textarea
+                        id="emailContent"
+                        value={emailContent}
+                        onChange={(e) => setEmailContent(e.target.value)}
+                        placeholder="Type your email here..."
+                        readOnly={loadingGenerate}
+                    />
+                    {loadingGenerate && <div className="loader">Loading...</div>}
+                </div>
             </div>
             <div className="ai-prompt-area">
                 <label htmlFor="aiPrompt">Write your prompt to AI:</label>
@@ -69,7 +80,7 @@ export default function EmailMarketer() {
                     />
                     <div className="buttons">
                         <button className="button" onClick={handleGenerateEmail}>Generate</button>
-                        <button className="button" onClick={handleSendEmail}>Send Email</button>
+                        <button className="button" onClick={handleSendEmail} disabled={isSendDisabled || loadingSend}>{loadingSend ? 'Sending...' : 'Send Email'}</button>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { getCryptoNews } from "../http";
 
 export default function CryptoNews() {
     const [newsList, setNewsList] = useState<{ title: string, type: string, url: string }[] | null>(null);
+    const [loadingNews, setLoadingNews] = useState(true);
 
     useEffect(() => {
         const fetchNews = async () => {
@@ -11,6 +12,8 @@ export default function CryptoNews() {
                 setNewsList(response);
             } catch (error) {
                 console.error("Error fetching crypto news:", error);
+            } finally {
+                setLoadingNews(false);
             }
         };
 
@@ -42,21 +45,40 @@ export default function CryptoNews() {
 
     const evaluation = newsList ? evaluateNews() : null;
 
+    let headerColor;
+
+    switch (evaluation) {
+        case 'Bullish':
+            headerColor = '#198754'; // Green
+            break;
+        case 'Bearish':
+            headerColor = '#dc3545'; // Red
+            break;
+        default:
+            headerColor = '#000'; // Black
+    }
+
     return (
-        <div>
-            <h1 className='news-evaluation'>{evaluation}</h1>
+        <div className="crypto-news-container">
+            <h1 className='news-evaluation' style={{ color: headerColor }}>{evaluation}</h1>
             <div className="news-container">
-                <div className="header-row">
-                    <div className="header-column">Header</div>
-                    <div className="header-column">Type</div>
-                </div>
-                {newsList && newsList.map((news, index) => (
-                    <div key={index} className="news-row">
-                        <div className="news-column">{news.title}</div>
-                        <div className="news-column">{news.type}</div>
-                    </div>
-                ))}
-                <button className='button'>Chat with Crypto News Expert (Coming Soon)</button>
+            {loadingNews ? (
+                    <p className="analysis-loader">Loading news...</p>
+                ) : (
+                    <>
+                        <div className="header-row">
+                            <div className="header-column">Header</div>
+                            <div className="type-column">Type</div>
+                        </div>
+                        {newsList && newsList.map((news, index) => (
+                            <div key={index} className="news-row">
+                                <div className="header-column">{news.title}</div>
+                                <div className="type-column">{news.type}</div>
+                            </div>
+                        ))}
+                        <button className='button'>Chat with Crypto News Expert (Coming Soon)</button>
+                    </>
+                )}
             </div>
         </div>
     );
