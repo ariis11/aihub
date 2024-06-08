@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Chart from "./Chart";
 
-import { generateCryptoNewsAnswer, generateTechnicalAnalysisAnswer, getCoinData, performTechnicalAnalysis } from "../http";
+import { generateTechnicalAnalysisAnswer, getCoinData, performTechnicalAnalysis } from "../http";
 
 export default function TechnicalAnalysis() {
     const [coinData, setCoinData] = useState<{ prices: any, market_caps: any, total_volumes: any } | null>(null);
