@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getCryptoNews } from "../http";
 
 export default function CryptoNews() {
-    const [newsList, setNewsList] = useState([{title: '', type: ''}]);
+    const [newsList, setNewsList] = useState([{ title: '', type: '', url: '' }]);
 
     useEffect(() => {
         const fetchNews = async () => {
@@ -17,18 +17,45 @@ export default function CryptoNews() {
         fetchNews();
     }, []);
 
+    function evaluateNews() {
+        let bullishCount = 0;
+        let bearishCount = 0;
+
+        newsList.forEach(news => {
+            if (news.type === 'Bullish') {
+                bullishCount++;
+            } else if (news.type === 'Bearish') {
+                bearishCount++;
+            }
+        });
+
+        if (bullishCount > bearishCount) {
+            return 'Bullish';
+        } else if (bearishCount > bullishCount) {
+            return 'Bearish';
+        } else {
+            return 'Neutral';
+        }
+    };
+
+    const evaluation = evaluateNews();
+
     return (
-        <div className="news-container">
-            <div className="header-row">
-                <div className="header-column">Header</div>
-                <div className="header-column">Type</div>
-            </div>
-            {newsList.map((news, index) => (
-                <div key={index} className="news-row">
-                    <div className="news-column">{news.title}</div>
-                    <div className="news-column">{news.type}</div>
+        <div>
+            <h1 className='news-evaluation'>{evaluation}</h1>
+            <div className="news-container">
+                <div className="header-row">
+                    <div className="header-column">Header</div>
+                    <div className="header-column">Type</div>
                 </div>
-            ))}
+                {newsList.map((news, index) => (
+                    <div key={index} className="news-row">
+                        <div className="news-column">{news.title}</div>
+                        <div className="news-column">{news.type}</div>
+                    </div>
+                ))}
+                <button className='button'>Chat with Crypto News Expert (Coming Soon)</button>
+            </div>
         </div>
     );
 }

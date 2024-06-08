@@ -4,6 +4,7 @@ import Home from './components/Home';
 import EmailMarketer from './components/EmailMarketer';
 import Navbar from './components/NavBar';
 import CryptoNews from './components/CryptoNews';
+import TechnicalAnalysis from './components/TechnicalAnalysis';
 
 export default function App() {
   useEffect(() => {
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/email-marketer" element={<EmailMarketer />} />
         <Route path="/crypto-news" element={<CryptoNews />} />
+        <Route path="/technical-analysis" element={<TechnicalAnalysis />} />
       </Routes>
     </>
   );

@@ -1,5 +1,5 @@
 body {
-  background-color: #1a1a1a;
+  background-color: #282c34;
   color: #fff;
   font-family: Arial, sans-serif;
 }
@@ -150,4 +150,8 @@ textarea {
 .news-column {
   flex: 1;
   padding: 8px;
+}
+
+.news-evaluation {
+  text-align: center;
 }
