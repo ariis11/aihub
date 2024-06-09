@@ -297,7 +297,7 @@ textarea {
 
 .navigation-header {
   text-align: center;
-  color: var(--tg-theme-text-color);
+  color: black;
   margin-top: 0;
   padding-top: 20px;
 }

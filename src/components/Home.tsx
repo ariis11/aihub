@@ -23,19 +23,19 @@ export default function Home() {
     <>
       {!selectedRoute ? (
         <div className="div-center">
-          <h1 className="navigation-header">CHOOSE REQUIRED SERVICE</h1>
+          <h1 className="navigation-header">CHOOSE HELPER</h1>
           <div className="container-navigation">
             <div className="inner">
               <div className="item">
-                <img src="imgen.webp" className="img" />
-                <Link className='link-reset' to="/email-marketer"><button className="btn" key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}>Email Marketer</button></Link>
+                <img src="emailh.png" className="img" />
+                <button className="btn" key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}><Link className='link-reset' to="/email-marketer">Email Marketer</Link></button>
               </div>
               <div className="item">
-                <img src="imgen.webp" className="img" />
+                <img src="web3.png" className="img" />
                 <button className="btn" key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}><Link className='link-reset' to="/crypto-news">WEB3</Link></button>
               </div>
               <div className="item">
-                <img src="imgen.webp" className="img" />
+                <img src="dataan.png" className="img" />
                 <button className="btn" key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link className='link-reset' to="/technical-analysis">Analyzer</Link></button>
               </div>
             </div>
