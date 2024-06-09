@@ -28,15 +28,15 @@ export default function Home() {
             <div className="inner">
               <div className="item">
                 <img src="emailh.png" className="img" />
-                <button className="btn" key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}><Link className='link-reset' to="/email-marketer">Email Marketer</Link></button>
+                <Link className='link-reset' to="/email-marketer"><button className="btn" key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}>Email Marketer</button></Link>
               </div>
               <div className="item">
                 <img src="web3.png" className="img" />
-                <button className="btn" key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}><Link className='link-reset' to="/crypto-news">WEB3</Link></button>
+                <Link className='link-reset' to="/crypto-news"><button className="btn" key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}>WEB3</button></Link>
               </div>
               <div className="item">
                 <img src="dataan.png" className="img" />
-                <button className="btn" key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link className='link-reset' to="/technical-analysis">Chart Analyzer</Link></button>
+                <Link className='link-reset' to="/technical-analysis"><button className="btn" key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}>Chart Analyzer</button></Link>
               </div>
             </div>
           </div>
