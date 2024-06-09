@@ -38,25 +38,11 @@ export default function Home() {
                 <img src="imgen.webp" className="img" />
                 <button className="btn" key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Analyzer</Link></button>
               </div>
-              {/* <button key="/home" onClick={() => handleRouteSelection("/home")}><Link to="/home">Home</Link></button>
-              <button key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}><Link to="/email-marketer">Email Marketer</Link></button>
-              <button key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}><Link to="/crypto-news">WEB3</Link></button>
-              <button key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Analyzer</Link></button> */}
             </div>
           </div>
         </div>
-
-
-
-        // <div>
-        //   <button key="/home" onClick={() => handleRouteSelection("/home")}><Link to="/home">Home</Link></button>
-        //   <button key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}><Link to="/email-marketer">Email Marketer</Link></button>
-        //   <button key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}><Link to="/crypto-news">WEB3</Link></button>
-        //   <button key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Analyzer</Link></button>
-        // </div>
       ) : (
         <div>
-          <Link to="/home">Back to Home</Link>
           <Routes>
             {routes.map(({ path, component }) => (
               <Route key={path} path={path} element={component} />
@@ -64,13 +50,6 @@ export default function Home() {
           </Routes>
         </div>
       )}
-      {/* <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/email-marketer" element={<EmailMarketer />} />
-        <Route path="/crypto-news" element={<CryptoNews />} />
-        <Route path="/technical-analysis" element={<TechnicalAnalysis />} />
-      </Routes> */}
     </>
   );
 };
