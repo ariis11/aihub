@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Home from './components/Home';
+import { TonConnectButton } from '@tonconnect/ui-react';
 
 export default function App() {
   useEffect(() => {
@@ -10,6 +11,7 @@ export default function App() {
 
   return (
     <>
+      <TonConnectButton />
       <Home />
     </>
   );
