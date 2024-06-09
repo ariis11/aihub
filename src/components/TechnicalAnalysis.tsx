@@ -29,7 +29,6 @@ export default function TechnicalAnalysis() {
             (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => {
                 let navigate = useNavigate();
                 navigate("/home");
-                (window as any).Telegram.WebApp.BackButton.hide();
             });
         }
     }, []);
