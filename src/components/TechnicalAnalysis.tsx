@@ -26,10 +26,7 @@ export default function TechnicalAnalysis() {
 
         if ((window as any).Telegram) {
             (window as any).Telegram.WebApp.BackButton.show();
-            (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => {
-                let navigate = useNavigate();
-                navigate("/home");
-            });
+            (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => handleClick());
         }
     }, []);
 
@@ -38,6 +35,12 @@ export default function TechnicalAnalysis() {
             performAnalysis();
         }
     }, [coinData]);
+
+    let navigate = useNavigate();
+
+    function handleClick() {
+        navigate("/home");
+    }
 
     function handlePromptChange(event: any) {
         setPrompt(event.target.value);

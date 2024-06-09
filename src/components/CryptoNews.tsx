@@ -23,11 +23,17 @@ export default function CryptoNews() {
         if ((window as any).Telegram) {
             (window as any).Telegram.WebApp.BackButton.show();
             (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => {
-                let navigate = useNavigate();
-                navigate("/home");
+                handleClick();
+                (window as any).Telegram.WebApp.BackButton.hide();
             });
         }
     }, []);
+
+    let navigate = useNavigate();
+
+    function handleClick() {
+        navigate("/home");
+    }
 
     function evaluateNews() {
         let bullishCount = 0;
