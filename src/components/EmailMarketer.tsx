@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { generateEmail, sendEmail } from "../http";
 
@@ -10,6 +10,11 @@ export default function EmailMarketer() {
     const [loadingGenerate, setLoadingGenerate] = useState(false);
     const [loadingSend, setLoadingSend] = useState(false);
 
+    useEffect(() => {
+        if ((window as any).Telegram) {
+          (window as any).Telegram.WebApp.BackButton.show();
+        }
+      }, []);
 
     async function handleGenerateEmail() {
         setLoadingGenerate(true);

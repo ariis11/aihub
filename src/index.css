@@ -237,6 +237,7 @@ textarea {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  padding-left: 10px;
 }
 
 .justified-text {
