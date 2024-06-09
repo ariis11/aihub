@@ -26,14 +26,27 @@ export default function Home() {
           <h1 className="navigation-header">CHOOSE REQUIRED SERVICE</h1>
           <div className="container-navigation">
             <div className="inner">
-              {/* <div className="item">
-                    <img src="imgen.webp" className="img" />
-                    <button className="btn" key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}><Link to="/email-marketer">Email Marketer</Link></button>
-                </div> */}
-              <button key="/home" onClick={() => handleRouteSelection("/home")}><Link to="/home">Home</Link></button>
+              LABAS
+              <div className="item">
+                {/* <img src="imgen.webp" className="img" /> */}
+                <button key="/home" onClick={() => handleRouteSelection("/home")}><Link to="/home">Home</Link></button>
+              </div>
+              <div className="item">
+                {/* <img src="imgen.webp" className="img" /> */}
+                <button key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}><Link to="/email-marketer">Email Marketer</Link></button>
+              </div>
+              <div className="item">
+                {/* <img src="imgen.webp" className="img" /> */}
+                <button key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}><Link to="/crypto-news">WEB3</Link></button>
+              </div>
+              <div className="item">
+                {/* <img src="imgen.webp" className="img" /> */}
+                <button key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Analyzer</Link></button>
+              </div>
+              {/* <button key="/home" onClick={() => handleRouteSelection("/home")}><Link to="/home">Home</Link></button>
               <button key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}><Link to="/email-marketer">Email Marketer</Link></button>
               <button key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}><Link to="/crypto-news">WEB3</Link></button>
-              <button key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Analyzer</Link></button>
+              <button key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Analyzer</Link></button> */}
             </div>
           </div>
         </div>
