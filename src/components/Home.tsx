@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import EmailMarketer from './EmailMarketer';
 import CryptoNews from './CryptoNews';
 import TechnicalAnalysis from './TechnicalAnalysis';
+import Navbar from './NavBar';
 
 export default function Home() {
   const [selectedRoute, setSelectedRoute] = useState<string>("");
@@ -22,15 +23,16 @@ export default function Home() {
   return (
     <>
       {!selectedRoute ? (
-        <div>
-          <button key="/home" onClick={() => handleRouteSelection("/home")}><Link to="/home">Home</Link></button>
-          <button key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}><Link to="/email-marketer">Email Marketer</Link></button>
-          <button key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}><Link to="/crypto-news">WEB3</Link></button>
-          <button key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Analyzer</Link></button>
-          {/* <Link to="/email-marketer">Email Marketer</Link>
-          <Link to="/crypto-news">WEB3</Link>
-          <Link to="/technical-analysis">Analyzer</Link> */}
-        </div>
+        // <div>
+        //   <button key="/home" onClick={() => handleRouteSelection("/home")}><Link to="/home">Home</Link></button>
+        //   <button key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}><Link to="/email-marketer">Email Marketer</Link></button>
+        //   <button key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}><Link to="/crypto-news">WEB3</Link></button>
+        //   <button key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Analyzer</Link></button>
+        //   {/* <Link to="/email-marketer">Email Marketer</Link>
+        //   <Link to="/crypto-news">WEB3</Link>
+        //   <Link to="/technical-analysis">Analyzer</Link> */}
+        // </div>
+        <Navbar handleRouteSelection={handleRouteSelection} />
       ) : (
         <div>
           <Link to="/home">Back to Home</Link>

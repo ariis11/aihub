@@ -1,4 +1,12 @@
-/* Global Styles */
+:root {
+  --background-color: var(--tg-theme-bg-color);
+  --text-color: var(--tg-theme-text-color);
+  --button-background-color: var(--tg-theme-button-color);
+  --button-text-color: var(--tg-theme-button-text-color);
+  --header-background-color: var(--tg-theme-header-bg-color);
+  --accent-text-color: var(--tg-theme-accent-text-color);
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f0f0;
@@ -257,4 +265,74 @@ textarea {
 
 .textarea-container.loading textarea {
   opacity: 0.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container-navigation {
+  max-width: 390px;
+  width: 90%; 
+  background-color: transparent;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.navigation-header {
+  text-align: center;
+  color: var(--tg-theme-text-color);
+  margin-top: 0;
+  padding-top: 20px;
+}
+
+.item {
+  text-align: center;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 220px 220px 220px;
+  gap: 10px;
+}
+
+.img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.btn {
+  display: block;
+  padding: 10px 20px;
+  border: none;
+  background: var(--button-background-color);
+  border-radius: 10px;
+  color: var(--button-text-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 90%;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.div-center {
+  text-align: -webkit-center;
 }
