@@ -16,7 +16,7 @@ export default function Navbar(handleRouteSelection: any) {
                     </div>
                     <div className="item">
                         <img src="imgen.webp" className="img" />
-                        <button className="btn" key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Analyzer</Link></button>
+                        <button className="btn" key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Chart Analyzer</Link></button>
                     </div>
                     {/* <div className="item">
                         <img src="imgen.webp" className="img" />

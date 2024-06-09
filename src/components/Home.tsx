@@ -36,7 +36,7 @@ export default function Home() {
               </div>
               <div className="item">
                 <img src="dataan.png" className="img" />
-                <button className="btn" key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link className='link-reset' to="/technical-analysis">Analyzer</Link></button>
+                <button className="btn" key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link className='link-reset' to="/technical-analysis">Chart Analyzer</Link></button>
               </div>
             </div>
           </div>
