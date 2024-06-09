@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getCryptoNews } from "../http";
+import { useNavigate } from 'react-router-dom';
 
 export default function CryptoNews() {
     const [newsList, setNewsList] = useState<{ title: string, type: string, url: string }[] | null>(null);
@@ -18,6 +19,15 @@ export default function CryptoNews() {
         };
 
         fetchNews();
+
+        if ((window as any).Telegram) {
+            (window as any).Telegram.WebApp.BackButton.show();
+            (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => {
+                let navigate = useNavigate();
+                navigate("/home");
+                (window as any).Telegram.WebApp.BackButton.hide();
+            });
+        }
     }, []);
 
     function evaluateNews() {

@@ -14,15 +14,13 @@ export default function EmailMarketer() {
     useEffect(() => {
         if ((window as any).Telegram) {
             (window as any).Telegram.WebApp.BackButton.show();
-            (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => handleClick());
+            (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => {
+                let navigate = useNavigate();
+                navigate("/home");
+                (window as any).Telegram.WebApp.BackButton.hide();
+            });
         }
     }, []);
-
-    let navigate = useNavigate();
-
-    function handleClick() {
-        navigate("/home");
-    }
 
     async function handleGenerateEmail() {
         setLoadingGenerate(true);

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Chart from "./Chart";
 
 import { generateTechnicalAnalysisAnswer, getCoinData, performTechnicalAnalysis } from "../http";
+import { useNavigate } from "react-router-dom";
 
 export default function TechnicalAnalysis() {
     const [coinData, setCoinData] = useState<{ prices: any, market_caps: any, total_volumes: any } | null>(null);
@@ -22,6 +23,15 @@ export default function TechnicalAnalysis() {
         };
 
         fetchNews();
+
+        if ((window as any).Telegram) {
+            (window as any).Telegram.WebApp.BackButton.show();
+            (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => {
+                let navigate = useNavigate();
+                navigate("/home");
+                (window as any).Telegram.WebApp.BackButton.hide();
+            });
+        }
     }, []);
 
     useEffect(() => {
