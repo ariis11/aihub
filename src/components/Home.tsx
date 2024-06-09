@@ -3,7 +3,6 @@ import { Routes, Route, Link } from "react-router-dom";
 import EmailMarketer from './EmailMarketer';
 import CryptoNews from './CryptoNews';
 import TechnicalAnalysis from './TechnicalAnalysis';
-import Navbar from './NavBar';
 
 export default function Home() {
   const [selectedRoute, setSelectedRoute] = useState<string>("");
