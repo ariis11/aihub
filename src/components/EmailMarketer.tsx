@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { generateEmail, sendEmail } from "../http";
+import { useNavigate } from "react-router-dom";
 
 export default function EmailMarketer() {
     const [emailContent, setEmailContent] = useState('');
@@ -12,9 +13,16 @@ export default function EmailMarketer() {
 
     useEffect(() => {
         if ((window as any).Telegram) {
-          (window as any).Telegram.WebApp.BackButton.show();
+            (window as any).Telegram.WebApp.BackButton.show();
+            (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => handleClick());
         }
-      }, []);
+    }, []);
+
+    let navigate = useNavigate();
+
+    function handleClick() {
+        navigate("/home");
+    }
 
     async function handleGenerateEmail() {
         setLoadingGenerate(true);
