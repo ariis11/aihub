@@ -29,8 +29,8 @@ export default function Chart(props: any) {
                     background: { type: ColorType.Solid, color: backgroundColor },
                     textColor,
                 },
-                width: 600,
-                height: 300,
+                width: 400,
+                height: 200,
             });
             chart.timeScale().fitContent();
 
