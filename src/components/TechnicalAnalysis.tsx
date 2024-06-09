@@ -26,7 +26,10 @@ export default function TechnicalAnalysis() {
 
         if ((window as any).Telegram) {
             (window as any).Telegram.WebApp.BackButton.show();
-            (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => handleClick());
+            (window as any).Telegram.WebApp.onEvent("backButtonClicked", () => {
+                handleClick();
+                (window as any).Telegram.WebApp.BackButton.hide();
+            });
         }
     }, []);
 
