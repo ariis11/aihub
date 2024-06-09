@@ -119,7 +119,7 @@ export async function generateTechnicalAnalysisAnswer(message: string, coinData:
 }
 
 export async function performTechnicalAnalysis(coinData: any) {
-    const newMessage = `Perform short and informative technical analysis. Data of cryptocurrency: ${JSON.stringify(coinData)}.`;
+    const newMessage = `Perform short and informative technical analysis. Go straight to the point, avoid making introductions. Data of cryptocurrency: ${JSON.stringify(coinData)}.`;
 
     console.log(newMessage);
 

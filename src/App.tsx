@@ -11,7 +11,9 @@ export default function App() {
 
   return (
     <>
-      <TonConnectButton />
+      <div className='right-align'>
+        <TonConnectButton />
+      </div>
       <Home />
     </>
   );

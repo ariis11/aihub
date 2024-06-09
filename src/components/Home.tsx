@@ -28,15 +28,15 @@ export default function Home() {
             <div className="inner">
               <div className="item">
                 <img src="imgen.webp" className="img" />
-                <button className="btn" key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}><Link to="/email-marketer">Email Marketer</Link></button>
+                <Link className='link-reset' to="/email-marketer"><button className="btn" key="/email-marketer" onClick={() => handleRouteSelection("/email-marketer")}>Email Marketer</button></Link>
               </div>
               <div className="item">
                 <img src="imgen.webp" className="img" />
-                <button className="btn" key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}><Link to="/crypto-news">WEB3</Link></button>
+                <button className="btn" key="/crypto-news" onClick={() => handleRouteSelection("/crypto-news")}><Link className='link-reset' to="/crypto-news">WEB3</Link></button>
               </div>
               <div className="item">
                 <img src="imgen.webp" className="img" />
-                <button className="btn" key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link to="/technical-analysis">Analyzer</Link></button>
+                <button className="btn" key="/technical-analysis" onClick={() => handleRouteSelection("/technical-analysis")}><Link className='link-reset' to="/technical-analysis">Analyzer</Link></button>
               </div>
             </div>
           </div>
